@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CitizenOne • Big Display Dashboards (Demo)</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo"></span>
+      <h1>CitizenOne • Control Room</h1>
+    </div>
+    <div class="actions">
+      <button class="btn ghost" onclick="switchTheme()">Toggle Theme</button>
+      <button class="btn" onclick="cycleDemo()">Cycle Demo</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- KPI STRIP -->
+    <section class="kpis">
+      <div class="kpi">
+        <div class="kpi-label">People in Queue Now</div>
+        <div class="kpi-value" id="kpi-queue">1,284</div>
+        <div class="spark" id="spark-queue"></div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Avg Wait (mins)</div>
+        <div class="kpi-value" id="kpi-wait">18</div>
+        <div class="spark" id="spark-wait"></div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Today's Appointments</div>
+        <div class="kpi-value" id="kpi-appts">12,960</div>
+        <div class="spark" id="spark-appts"></div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Completion Rate</div>
+        <div class="kpi-value" id="kpi-complete">92%</div>
+        <div class="spark" id="spark-complete"></div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">No‑Show Rate</div>
+        <div class="kpi-value" id="kpi-noshow">4.8%</div>
+        <div class="spark" id="spark-noshow"></div>
+      </div>
+    </section>
+
+    <!-- BIG VISUALS ROW -->
+    <section class="grid-3">
+      <div class="card">
+        <div class="card-title">Live Footfall (Last 8 Hours)</div>
+        <svg id="area-footfall" class="chart" viewBox="0 0 700 260" preserveAspectRatio="none"></svg>
+        <div class="legend"><span class="pill pink"></span> Entries/hour</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Crowd Forecast (Hour-wise)</div>
+        <div id="bars-forecast" class="bars"></div>
+        <div class="legend"><span class="pill amber"></span> Lower is Better</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Service Mix (Today)</div>
+        <div class="donut-wrap">
+          <svg id="donut" viewBox="0 0 260 260"></svg>
+          <div class="donut-center">
+            <div class="big">100%</div>
+            <div class="muted">of services</div>
+          </div>
+        </div>
+        <div class="chips" id="donut-legend"></div>
+      </div>
+    </section>
+
+    <!-- MAP + TABLE ROW -->
+    <section class="grid-2">
+      <div class="card">
+        <div class="card-title">City Map – Offices (Demo)</div>
+        <div id="map" class="map"></div>
+        <div class="legend">
+          <span class="dot green"></span>Low
+          <span class="dot yellow"></span>Med
+          <span class="dot red"></span>High
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Queue by Office</div>
+        <div id="table-offices" class="table"></div>
+      </div>
+    </section>
+
+    <!-- ALERTS STRIP -->
+    <section class="alerts card">
+      <div class="card-title">Live Alerts</div>
+      <ul id="alerts-list" class="alerts-list"></ul>
+    </section>
+  </main>
+
+
+
+  <script src="script.js"></script>
+</body>
+</html>
